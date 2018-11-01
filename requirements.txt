@@ -1,5 +1,4 @@
 gunicorn
 Flask
 matplotlib
-io
 base64
