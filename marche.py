@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 from matplotlib.dates import DateFormatter
 from matplotlib.dates import HourLocator
+import io
+import base64
 
 # import mpld3
 
