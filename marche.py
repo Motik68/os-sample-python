@@ -60,18 +60,18 @@ def tableau_de_marche(horaire, titre):
     if nTrains > 1 or nNavettes > 0:
         plt.legend(legende, loc='upper left')
     # with PdfPages('horaire.pdf') as pdf:
-    #     pdf.savefig()
+    #    pdf.savefig()
     figure.suptitle('Chemin de Fer des Chanteraines', fontsize=24, fontweight='bold')
 
     img = io.BytesIO()
     plt.savefig(img, format='png')
     img.seek(0)
     graph_url = base64.b64encode(img.getvalue()).decode()
-	# plt.show()
+    # plt.show()
     # mpld3.show()
 
     # print(temps_demitourEpinay)
     # print(temps_demitourGennevilliers)
-
-	plt.close()
+    
+    plt.close()
     return 'data:image/png;base64,{}'.format(graph_url)
