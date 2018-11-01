@@ -53,9 +53,9 @@ def horaireCFC():
         'heure_limite_arrivee_ferme': datetime.datetime(1970, 1, 1, 19, 10),
         'nNavettes': 0,
         'terminus_navettes': 'La Ferme'
-    })
-....tableau_url = tableau_de_marche(horaire, horaire['titre'])
-....return render_template('tableau_marche.html', tableau_marche=tableau_url)
+	})
+	tableau_url = tableau_de_marche(horaire, horaire['titre'])
+	return render_template('tableau_marche.html', tableau_marche=tableau_url)
  
 if __name__ == '__main__':
     application.debug = True
