@@ -39,7 +39,7 @@ def graphs():
 
 @application.route('/cfc')
 def horaireCFC():
-....horaire = calcul_horaire({
+	horaire = calcul_horaire({
         'titre': 'Samedi (1 train)',
         'nTrains': 1,
         'temps_entre_gares': datetime.timedelta(minutes=8),
