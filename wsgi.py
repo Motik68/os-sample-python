@@ -54,7 +54,7 @@ def horaireCFC():
         'nNavettes': 0,
         'terminus_navettes': 'La Ferme'
 	})
-	tableau_url = tableau_de_marche(horaire, horaire['Samedi (1 train)'])
+	tableau_url = tableau_de_marche(horaire, 'Samedi (1 train)')
 	return render_template('tableau_marche.html', tableau_marche=tableau_url)
  
 if __name__ == '__main__':
