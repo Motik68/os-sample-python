@@ -36,7 +36,7 @@ def graphs():
     graph1=graph1_url,
     graph2=graph2_url,
     graph3=graph3_url)
-.
+
 @application.route('/cfc')
 def horaireCFC():
 ....horaire = calcul_horaire({
