@@ -13,6 +13,8 @@
 from flask import Flask, render_template
 from graph import build_graph
 from definitions import *
+from horaire import calcul_horaire
+from marche import tableau_de_marche
  
 application = Flask(__name__)
  
