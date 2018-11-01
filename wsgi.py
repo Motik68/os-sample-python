@@ -12,6 +12,7 @@
 	
 from flask import Flask, render_template
 from graph import build_graph
+from definitions import *
  
 application = Flask(__name__)
  
@@ -33,6 +34,12 @@ def graphs():
     graph1=graph1_url,
     graph2=graph2_url,
     graph3=graph3_url)
+	
+@application.route('/cfc')
+def horaireCFC():
+	horaire = calcul_horaire(TypeHoraire[0])
+	tableau_url = tableau_de_marche(horaire, horaire['titre'])
+	return render_template('tableau_marche.html', tableau_marche=tableau_url)
  
 if __name__ == '__main__':
     application.debug = True
