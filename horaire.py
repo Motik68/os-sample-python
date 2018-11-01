@@ -3,7 +3,7 @@ import datetime
 from definitions import *
 
 
-def decodage_type_horaire(type_horaire)
+def decodage_type_horaire(type_horaire):
 	"""
 	Décode un type_horaire pour le passer à calcul_horaire()
 	
