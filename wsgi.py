@@ -40,7 +40,7 @@ def graphs():
 @application.route('/cfc')
 def horaireCFC():
 	try:
-		type_horaire = request.args.get('type')
+		type_horaire = int(request.args.get('type'))
 	except:
 		type_horaire = 0
 	
