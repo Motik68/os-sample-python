@@ -32,10 +32,12 @@ def graphs():
 @application.route('/cfc')
 def horaireCFC():
 	type_horaire = request.args.get('type', 0, type=int)
+	
+	liste_types = [type['titre'] for type in TypeHoraire]
 
 	horaire = calcul_horaire(decodage_type_horaire(TypeHoraire[type_horaire]))
 	tableau_url, pdf_url = tableau_de_marche(horaire, TypeHoraire[type_horaire]['titre'])
-	return render_template('tableau_marche.html', tableau_marche=tableau_url, tableau_marche_pdf=pdf_url)
+	return render_template('tableau_marche.html', tableau_marche=tableau_url, tableau_marche_pdf=pdf_url, types=liste_types)
  
 if __name__ == '__main__':
     application.debug = True

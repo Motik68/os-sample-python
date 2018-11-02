@@ -2,13 +2,17 @@
 <html>
 <title>Tableau de marche</title>
 <body>
-	<!-- <embed data="{{ tableau_marche_pdf }}" type="application/pdf" width="100%" height="100%"> -->
-		<!-- <iframe src="{{ tableau_marche_pdf }}" width="100%" height="100%" style="border: none;"> -->
-			<!--Ce navigateur n'affiche pas les PDF. Cliquez pour sauvegarder le document: -->
-			<a href="{{ tableau_marche_pdf }}"><img src='{{ tableau_marche }}'></img></a>
-		<!-- </iframe> -->
-	<!-- </embed> -->
-	<!-- <p> -->
-	<!-- <img src='{{ tableau_marche }}'></img> -->
+	<a href="{{ tableau_marche_pdf }}"><img src='{{ tableau_marche }}'></img></a>
+	
+	<p>Type d'horaire :</p>
+	<form action="/cfc">
+		<select name="type_horaire" width="300px">
+		{% for type in types %}
+			<option value="{{ type }}" SELECTED>{{ type }}</option>
+		{% endfor %}
+		</select>
+		<input class="button1" type="submit" value="Calculer">
+	</form>
+
 </body>
 </html>
