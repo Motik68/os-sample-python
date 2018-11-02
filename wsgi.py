@@ -56,7 +56,10 @@ def horaireCFC():
 	horaire = calcul_horaire(decodage_type_horaire(parametres))
 	tableau_url, pdf_url = tableau_de_marche(horaire, parametres['titre'])
 	return render_template('tableau_marche.html', tableau_marche=tableau_url, tableau_marche_pdf=pdf_url, 
-							types=liste_types, choix_type=type_horaire, parametres=parametres)
+							types=liste_types, choix_type=type_horaire, parametres=parametres, 
+							liste_terminus_gennevilliers=liste_terminus_gennevilliers, 
+							liste_terminus_epinay=liste_terminus_epinay, 
+							liste_terminus_navettes=liste_terminus_navettes)
  
 if __name__ == '__main__':
     application.debug = True

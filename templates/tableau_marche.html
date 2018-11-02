@@ -2,6 +2,12 @@
 <html>
 <title>Tableau de marche</title>
 <body>
+	<style type="text/css">
+		input, label {
+			display:block;
+		}
+	</style>
+	
 	<p style="text-align:center;">
 		<a href="{{ tableau_marche_pdf }}"><img src='{{ tableau_marche }}' width="70%"></img></a>
 	</p>
@@ -13,15 +19,58 @@
 			<option value="{{ i }}"{% if i == choix_type %} SELECTED{% endif %}>{{ types[i] }}</option>
 		{% endfor %}
 		</select>
+		
 		<input class="button1" type="submit" value="Appliquer">
 	</form>
 
 	<form action="/cfc">
-		<p>Paramètres :</p>
+		<p>Paramètres manuels :</p>
 		<label for="nTrains">Nombre de trains :</label>
 		<input type="number" name="nTrains" value="{{ parametres['nTrains'] }}" min="1" max="9">
-		<label for="temps_entre_gares">Temps entre gares :</label>
+		
+		<label for="temps_entre_gares">Temps entre gares (minutes) :</label>
 		<input type="number" name="temps_entre_gares" value="{{ parametres['temps_entre_gares'] }}" min="1" max="20">
+		
+		<label for="terminus_gennevilliers">Terminus :</label>
+		<select name="terminus_gennevilliers" width="300px">
+		{% for gare in liste_terminus_gennevilliers %}
+			<option value="{{ gare }}"{% if gare == parametres['terminus_gennevilliers'] %} SELECTED{% endif %}>{{ gare }}</option>
+		{% endfor %}
+		</select>
+		<select name="terminus_epinay" width="300px">
+		{% for gare in liste_terminus_epinay %}
+			<option value="{{ gare }}"{% if gare == parametres['terminus_epinay'] %} SELECTED{% endif %}>{{ gare }}</option>
+		{% endfor %}
+		</select>
+		
+		<label for="temps_arret_terminus">Temps aux terminus (minutes) :</label>
+		<input type="number" name="temps_arret_terminus" value="{{ parametres['temps_arret_terminus'] }}" min="0" max="20">
+		
+		<label for="depart_limite_premier_train_depot">Départ du dépôt après :</label>
+		<input type="time" name="depart_limite_premier_train_depot" value="{{ parametres['depart_limite_premier_train_depot'] }}">
+		
+		<label for="temps_depot_ferme">Temps entre le dépôt et la Ferme (minutes) :</label>
+		<input type="number" name="temps_depot_ferme" value="{{ parametres['temps_depot_ferme'] }}" min="1" max="60">
+		
+		<label for="depart_T1_ferme">Départ T1 de la Ferme :</label>
+		<input type="time" name="depart_T1_ferme" value="{{ parametres['depart_T1_ferme'] }}">
+		
+		<label for="temps_entre_trains">Temps entre trains (minutes) :</label>
+		<input type="number" name="temps_entre_trains" value="{{ parametres['temps_entre_trains'] }}" min="1" max="60">
+		
+		<label for="heure_limite_arrivee_ferme">Terminus à la Ferme avant :</label>
+		<input type="time" name="heure_limite_arrivee_ferme" value="{{ parametres['heure_limite_arrivee_ferme'] }}">
+		
+		<label for="nNavettes">Nombre de navettes :</label>
+		<input type="number" name="nNavettes" value="{{ parametres['nNavettes'] }}" min="0" max="9">
+		
+		<label for="terminus_navettes">Terminus des navettes :</label>
+		<select name="terminus_navettes" width="300px">
+		{% for gare in liste_terminus_navettes %}
+			<option value="{{ gare }}"{% if gare == parametres['terminus_navettes'] %} SELECTED{% endif %}>{{ gare }}</option>
+		{% endfor %}
+		</select>
+		
 		<input class="button1" type="submit" value="Appliquer">
 	</form>
 
