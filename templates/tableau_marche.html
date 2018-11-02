@@ -2,8 +2,11 @@
 <html>
 <title>Tableau de marche</title>
 <body>
-	<object data="{{ tableau_marche_pdf }}" type="application/pdf" width="100%" height="100%"></object>
-	<p>
-	<img src='{{ tableau_marche }}'></img>
+	<object data="{{ tableau_marche_pdf }}" type="application/pdf" width="100%" height="100%">
+		<iframe src="/document.pdf" width="100%" height="100%" style="border: none;">Ce navigateur n'affiche pas les PDF. Cliquez pour sauvegarder le document: <a href="/document.pdf">Télécharger le PDF</a>
+		</iframe>
+	</object>
+	<!-- <p> -->
+	<!-- <img src='{{ tableau_marche }}'></img> -->
 </body>
 </html>
