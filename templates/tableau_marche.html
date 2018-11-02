@@ -2,16 +2,17 @@
 <html>
 <title>Tableau de marche</title>
 <body>
-	<a href="{{ tableau_marche_pdf }}"><img src='{{ tableau_marche }}'></img></a>
+	<a href="{{ tableau_marche_pdf }}"><img src='{{ tableau_marche }}' width="70%"></img></a>
 	
-	Horaire prdéfini :<br>
+	<br>
 	<form action="/cfc">
+		Horaire prédéfini :<br>
 		<select name="type" width="300px">
 		{% for i in range(types|count) %}
 			<option value="{{ i }}"{% if i == choix_type %} SELECTED{% endif %}>{{ types[i] }}</option>
 		{% endfor %}
 		</select>
-		<input class="button1" type="submit" value="Calculer">
+		<input class="button1" type="submit" value="Appliquer">
 	</form>
 
 </body>
