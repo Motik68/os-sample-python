@@ -10,7 +10,7 @@
 
 
 	
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from graph import build_graph
 from definitions import *
 from horaire import decodage_type_horaire, calcul_horaire
@@ -39,6 +39,11 @@ def graphs():
 
 @application.route('/cfc')
 def horaireCFC():
+	try:
+		type_horaire = request.args.get('type')
+	except:
+		type_horaire = 0
+	
 	# horaire = calcul_horaire({
         # 'titre': 'Samedi (1 train)',
         # 'nTrains': 1,
@@ -54,8 +59,9 @@ def horaireCFC():
         # 'nNavettes': 0,
         # 'terminus_navettes': 'La Ferme'
 	# })
-	horaire = calcul_horaire(decodage_type_horaire(TypeHoraire[0]))
-	tableau_url = tableau_de_marche(horaire, TypeHoraire[0]['titre'])
+
+	horaire = calcul_horaire(decodage_type_horaire(TypeHoraire[type_horaire]))
+	tableau_url = tableau_de_marche(horaire, TypeHoraire[type_horaire]['titre'])
 	return render_template('tableau_marche.html', tableau_marche=tableau_url)
  
 if __name__ == '__main__':
