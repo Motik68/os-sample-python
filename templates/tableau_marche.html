@@ -8,7 +8,7 @@
 	<form action="/cfc">
 		<select name="type" width="300px">
 		{% for i in range(types|count) %}
-			<option value="{{ i }}"{% if i == choix_type %} SELECTED{ endif }>{{ types[i] }}</option>
+			<option value="{{ i }}"{% if i == choix_type %} SELECTED{% endif %}>{{ types[i] }}</option>
 		{% endfor %}
 		</select>
 		<input class="button1" type="submit" value="Calculer">
