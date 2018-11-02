@@ -2,9 +2,10 @@
 <html>
 <title>Tableau de marche</title>
 <body>
-	<a href="{{ tableau_marche_pdf }}"><img src='{{ tableau_marche }}' width="70%" class:"center"></img></a>
-	
-	<br>
+	<p style="text-align:center;">
+		<a href="{{ tableau_marche_pdf }}"><img src='{{ tableau_marche }}' width="70%"></img></a>
+	</p>
+
 	<form action="/cfc">
 		<p>Horaire prédéfini :</p>
 		<select name="type" width="300px">
@@ -17,7 +18,9 @@
 
 	<form action="/cfc">
 		<p>Paramètres :</p>
+		<label for="nTrains">Nombre de trains</label>
 		<input type="number" name="nTrains" value="1" min="1" max="9">
+		<label for="temps_entre_gares">Temps entre deux gares</label>
 		<input type="number" name="temps_entre_gares" value="8" min="1" max="20">
 		<input class="button1" type="submit" value="Appliquer">
 	</form>
