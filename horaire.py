@@ -20,11 +20,11 @@ def decodage_type_horaire(type_horaire):
         'terminus_gennevilliers': type_horaire['terminus_gennevilliers'],
         'terminus_epinay': type_horaire['terminus_epinay'],
         'temps_arret_terminus': datetime.timedelta(minutes=type_horaire['temps_arret_terminus']),
-        'depart_limite_premier_train_depot': datetime.datetime(1970, 1, 1, type_horaire['depart_limite_premier_train_depot'].split(':')[0], type_horaire['depart_limite_premier_train_depot'].split(':')[1]),
+        'depart_limite_premier_train_depot': datetime.datetime(1970, 1, 1, int(type_horaire['depart_limite_premier_train_depot'].split(':')[0]), int(type_horaire['depart_limite_premier_train_depot'].split(':')[1])),
         'temps_depot_ferme': datetime.timedelta(minutes=type_horaire['temps_depot_ferme']),
-        'depart_T1_ferme': datetime.datetime(1970, 1, 1, type_horaire['depart_T1_ferme'].split(':')[0], type_horaire['depart_T1_ferme'].split(':')[1]),
+        'depart_T1_ferme': datetime.datetime(1970, 1, 1, int(type_horaire['depart_T1_ferme'].split(':')[0]), int(type_horaire['depart_T1_ferme'].split(':')[1])),
         'temps_entre_trains': datetime.timedelta(minutes=type_horaire['temps_entre_trains']),
-        'heure_limite_arrivee_ferme': datetime.datetime(1970, 1, 1, type_horaire['heure_limite_arrivee_ferme'].split(':')[0], type_horaire['heure_limite_arrivee_ferme'].split(':')[1]),
+        'heure_limite_arrivee_ferme': datetime.datetime(1970, 1, 1, int(type_horaire['heure_limite_arrivee_ferme'].split(':')[0]), int(type_horaire['heure_limite_arrivee_ferme'].split(':')[1])),
         'nNavettes': type_horaire['nNavettes'],
         'terminus_navettes': type_horaire['terminus_navettes']
 	}
