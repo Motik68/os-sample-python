@@ -61,8 +61,8 @@ def horaireCFC():
 	# })
 
 	horaire = calcul_horaire(decodage_type_horaire(TypeHoraire[type_horaire]))
-	tableau_url = tableau_de_marche(horaire, TypeHoraire[type_horaire]['titre'])
-	return render_template('tableau_marche.html', tableau_marche=tableau_url)
+	tableau_url, pdf_url = tableau_de_marche(horaire, TypeHoraire[type_horaire]['titre'])
+	return render_template('tableau_marche.html', tableau_marche=tableau_url, tableau_marche_pdf=pdf_url)
  
 if __name__ == '__main__':
     application.debug = True

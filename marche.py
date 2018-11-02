@@ -69,6 +69,11 @@ def tableau_de_marche(horaire, titre):
     plt.savefig(img, format='png')
     img.seek(0)
     graph_url = base64.b64encode(img.getvalue()).decode()
+    
+	pdf = io.BytesIO()
+    plt.savefig(pdf, format='pdf')
+    pdf.seek(0)
+    pdf_url = base64.b64encode(pdf.getvalue()).decode()
     # plt.show()
     # mpld3.show()
 
@@ -76,4 +81,4 @@ def tableau_de_marche(horaire, titre):
     # print(temps_demitourGennevilliers)
     
     plt.close()
-    return 'data:image/png;base64,{}'.format(graph_url)
+    return 'data:image/png;base64,{}'.format(graph_url), 'data:application/pdf;base64,{}'.format(pdf_url)
