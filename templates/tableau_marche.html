@@ -7,8 +7,8 @@
 	<p>Type d'horaire :</p>
 	<form action="/cfc">
 		<select name="type_horaire" width="300px">
-		{% for type in types %}
-			<option value="{{ type }}" SELECTED>{{ type }}</option>
+		{% for i in range(len(types)) %}
+			<option value="{{ i }}" SELECTED>{{ types[i] }}</option>
 		{% endfor %}
 		</select>
 		<input class="button1" type="submit" value="Calculer">
